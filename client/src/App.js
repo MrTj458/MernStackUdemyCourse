@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import store from './store'
 
 import './App.css'
 
@@ -13,7 +15,7 @@ import Login from './components/auth/Login'
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<Provider store={store}>
 				<Navbar />
 				<Switch>
 					<Route exact path="/" component={Landing} />
@@ -23,7 +25,7 @@ class App extends Component {
 					</div>
 				</Switch>
 				<Footer />
-			</div>
+			</Provider>
 		)
 	}
 }
